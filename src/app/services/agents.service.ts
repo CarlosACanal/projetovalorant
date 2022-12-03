@@ -14,7 +14,7 @@ export class AgentsService {
   }
 
 
-  getAgents(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiURL}/agents`);
+  getAgents(): Observable<any> {
+    return this.http.get<any>(`${this.apiURL}/agents`);
   }
 }

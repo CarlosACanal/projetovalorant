@@ -1,1 +1,4 @@
-<p>card works!</p>
+<div class="card" *ngFor="let agent of agents">
+    <h3>{{agent.displayName}}</h3>
+    <p>{{agent.description}}</p>
+</div>

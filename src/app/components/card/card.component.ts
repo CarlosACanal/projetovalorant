@@ -1,23 +1,25 @@
 import { AgentsService } from './../../services/agents.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
-  agents:any;
+export class CardComponent implements OnInit, AfterViewChecked {
+  agents!:any[];
 
   constructor(private agentsService: AgentsService) { }
 
   ngOnInit(): void {
     this.agentsService.getAgents()
-      .subscribe((agents) => {
-        this.agents = agents;
+      .subscribe(agents => {
+        this.agents = agents.data;
       })
+  }
 
-    console.log(this.agents);
+  ngAfterViewChecked() {
+    console.log(this.agents)
   }
 
 }
