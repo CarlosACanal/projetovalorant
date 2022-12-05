@@ -1,0 +1,17 @@
+.agents {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+
+    .cards {
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+       .card{
+        width: 25%;
+       }
+    }
+}

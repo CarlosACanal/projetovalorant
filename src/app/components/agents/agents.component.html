@@ -1,0 +1,10 @@
+<section class="agents" >
+    <div class="cards">
+        <app-card class="card" *ngFor="let agent of agents"
+        [cardImage]="agent.fullPortraitV2"
+        [name]="agent.displayName"
+        [backgroundColorCard]="'#'+agent.backgroundGradientColors[0]"
+        [backgroundImageCard]="agent.background"
+        [description]="agent.description"></app-card>
+    </div>
+</section>

@@ -10,11 +10,12 @@ export class AgentsService {
   readonly apiURL: string;
 
   constructor(private http: HttpClient) {
-    this.apiURL = "https://valorant-api.com/v1";
+    this.apiURL = "https://valorant-api.com/v1/";
   }
 
 
   getAgents(): Observable<any> {
-    return this.http.get<any>(`${this.apiURL}/agents`);
+    return this.http.get<any>(`${this.apiURL}agents`);
   }
+
 }
