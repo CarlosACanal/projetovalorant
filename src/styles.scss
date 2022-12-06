@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500;700&family=Poppins:wght@100;400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
+:root{
+	--pink: #ff4656ff;
+	--white: #ffffff;
+	--dark-blue: #0a141e;
+	--background: #ece8e1;
+
+}
+
+
+body::-webkit-scrollbar {
+	width: 7px;
+}
+
+body::-webkit-scrollbar-track {
+	background: rgb(198, 198, 198);
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: rgb(39, 39, 39);
+}
+
+
+// reset CSS
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -44,20 +67,8 @@ table {
 	border-spacing: 0;
 }
 
-body::-webkit-scrollbar {
-	width: 7px;
-}
-
-body::-webkit-scrollbar-track {
-	background: rgb(198, 198, 198);
-}
-
-body::-webkit-scrollbar-thumb {
-	background-color: #ff4656ff;
-}
-
 body{
 	overflow-x: hidden;
-	background-color: #ece8e1;
+	background-color: var(--background);
 	font-family: 'Poppins', sans-serif;
 }

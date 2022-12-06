@@ -25,12 +25,18 @@ export class AgentsComponent implements OnInit {
     console.log(this.agents)
   }
 
-  filterByRole(role: string) {
-    this.agents.forEach((agent) => {
-      if (agent.role.displayName == role) {
-        
-      }
-    })
+  detailAgent(name: string) {
+    const data = this.agentsService.getAgentsByName(name);
+    console.log(data)
   }
+
+  // filterByRole(role: string) {
+  //   this.agents.forEach((agent) => {
+  //     if (agent.role.displayName == role) {
+
+  //     }
+  //   })
+  // }
+
 
 }

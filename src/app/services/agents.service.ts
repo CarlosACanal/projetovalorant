@@ -18,4 +18,11 @@ export class AgentsService {
     return this.http.get<any>(`${this.apiURL}agents`);
   }
 
+  getAgentsByName(name: string) {
+    const teste = this.getAgents().subscribe((agents) => {
+      const a = agents.data.find((agent: { displayName: string; }) => { return agent.displayName == name });
+      return a;
+    })
+    return teste;
+  }
 }
