@@ -19,10 +19,22 @@ export class AgentsService {
   }
 
   getAgentsByName(name: string) {
-    const teste = this.getAgents().subscribe((agents) => {
-      const a = agents.data.find((agent: { displayName: string; }) => { return agent.displayName == name });
-      return a;
-    })
-    return teste;
+    let agentsList: any[] = [];
+    this.getAgents()
+      .subscribe((agents) => {
+        agents.data.forEach((agent: any) => {
+          if (agent.isPlayableCharacter != false) {
+            agentsList.push(agent);
+          }
+        });
+      });
+    
+    for (let i = 0; i < agentsList.length; i++) {
+      let agent: any = agentsList[i];
+      if (agent.displayName == name) {
+        return agent;
+      }
+    }
+    return null;
   }
 }

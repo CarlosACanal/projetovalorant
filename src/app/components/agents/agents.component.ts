@@ -9,6 +9,7 @@ import { AgentsService } from 'src/app/services/agents.service';
 export class AgentsComponent implements OnInit {
 
   agents: any[] = [];
+  selectedAgent: any
 
   constructor(private agentsService: AgentsService) { }
 
@@ -26,17 +27,8 @@ export class AgentsComponent implements OnInit {
   }
 
   detailAgent(name: string) {
-    const data = this.agentsService.getAgentsByName(name);
-    console.log(data)
+    this.selectedAgent = this.agentsService.getAgentsByName(name);
+    console.log('++++++====++++++')
+    console.log(this.selectedAgent);
   }
-
-  // filterByRole(role: string) {
-  //   this.agents.forEach((agent) => {
-  //     if (agent.role.displayName == role) {
-
-  //     }
-  //   })
-  // }
-
-
 }
