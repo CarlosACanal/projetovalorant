@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class AgentsService {
 
   readonly apiURL: string;
+  agentList!: any[];
 
   constructor(private http: HttpClient) {
     this.apiURL = "https://valorant-api.com/v1/";
@@ -16,25 +17,10 @@ export class AgentsService {
 
   getAgents(): Observable<any> {
     return this.http.get<any>(`${this.apiURL}agents`);
+  };
+
+  getAgentById(agentId: String): Observable<any> {
+    return this.http.get<any>(`${this.apiURL}agents/${agentId}`)
   }
 
-  getAgentsByName(name: string) {
-    let agentsList: any[] = [];
-    this.getAgents()
-      .subscribe((agents) => {
-        agents.data.forEach((agent: any) => {
-          if (agent.isPlayableCharacter != false) {
-            agentsList.push(agent);
-          }
-        });
-      });
-    
-    for (let i = 0; i < agentsList.length; i++) {
-      let agent: any = agentsList[i];
-      if (agent.displayName == name) {
-        return agent;
-      }
-    }
-    return null;
-  }
 }

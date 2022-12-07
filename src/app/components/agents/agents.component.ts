@@ -23,12 +23,13 @@ export class AgentsComponent implements OnInit {
         });
       });
 
-    console.log(this.agents)
+    console.log(this.agents);
   }
 
-  detailAgent(name: string) {
-    this.selectedAgent = this.agentsService.getAgentsByName(name);
-    console.log('++++++====++++++')
-    console.log(this.selectedAgent);
+  detailAgent(agentId: String) {
+    this.agentsService.getAgentById(agentId)
+      .subscribe((agent) => {
+        console.log(agent);
+      })
   }
 }

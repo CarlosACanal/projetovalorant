@@ -1,4 +1,7 @@
+import { AgentsService } from 'src/app/services/agents.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-agent-details',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentDetailsComponent implements OnInit {
 
-  constructor() { }
+  id?: any;
+  subs!: Subscription;
+  agent!: any
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private agentsService: AgentsService,
+  ) { }
 
   ngOnInit(): void {
+    this.subs = this.route.params.subscribe((params: any) => {
+      this.id = params['id'];
+    });
+
+    this.agent = this.agentsService.getAgentById(this.id)
+      .subscribe((agent) => {
+        return agent
+      });
+    
+      console.log(this.agent)
+
+    // if (this.agent == null) {
+    //   this.router.navigate(['cursos/naoEncontrado'])
+
+    // }
   }
 
 }

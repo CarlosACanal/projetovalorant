@@ -5,7 +5,7 @@
         [name]="agent.displayName"
         [backgroundColorCard]="'#'+agent.backgroundGradientColors[1]"
         [backgroundImageCard]="agent.background"
-        [description]="agent.description"
-        (click)="detailAgent(agent.displayName)"></app-card>
+        [routerLink]="['/agents',agent.uuid]"></app-card>
     </div>
+    <router-outlet></router-outlet>
 </section>
