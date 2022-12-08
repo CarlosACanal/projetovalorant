@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AgentsService } from 'src/app/services/agents.service';
 
 @Component({
   selector: 'app-agents',
@@ -8,28 +7,9 @@ import { AgentsService } from 'src/app/services/agents.service';
 })
 export class AgentsComponent implements OnInit {
 
-  agents: any[] = [];
-  selectedAgent: any
-
-  constructor(private agentsService: AgentsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.agentsService.getAgents()
-      .subscribe((agents) => {
-        agents.data.forEach((agent: any) => {
-          if (agent.isPlayableCharacter != false) {
-            this.agents.push(agent);
-          }
-        });
-      });
-
-    console.log(this.agents);
   }
 
-  detailAgent(agentId: String) {
-    this.agentsService.getAgentById(agentId)
-      .subscribe((agent) => {
-        console.log(agent);
-      })
-  }
 }

@@ -12,7 +12,8 @@ export class AgentDetailsComponent implements OnInit {
 
   id?: any;
   subs!: Subscription;
-  agent!: any
+  agent!: any;
+ 
 
   constructor(
     private route: ActivatedRoute,
@@ -25,17 +26,13 @@ export class AgentDetailsComponent implements OnInit {
       this.id = params['id'];
     });
 
-    this.agent = this.agentsService.getAgentById(this.id)
+    this.agentsService.getAgentById(this.id)
       .subscribe((agent) => {
-        return agent
+        console.log(agent.data);
+        this.agent = agent.data;
       });
-    
-      console.log(this.agent)
-
-    // if (this.agent == null) {
-    //   this.router.navigate(['cursos/naoEncontrado'])
-
-    // }
   }
-
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
 }

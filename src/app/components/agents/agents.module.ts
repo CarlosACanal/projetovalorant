@@ -8,12 +8,14 @@ import { CardComponent } from './../card/card.component';
 import { AgentsService } from 'src/app/services/agents.service';
 import { AgentsComponent } from './agents.component';
 import { AgentDetailsComponent } from './agent-details/agent-details.component';
+import { AgentListComponent } from './agent-list/agent-list.component';
 
 @NgModule({
   declarations: [
     AgentsComponent,
     AgentDetailsComponent,
     CardComponent,
+    AgentListComponent,
   ],
   imports: [
     CommonModule,
