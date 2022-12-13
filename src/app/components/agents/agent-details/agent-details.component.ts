@@ -13,7 +13,7 @@ export class AgentDetailsComponent implements OnInit {
   id?: any;
   subs!: Subscription;
   agent!: any;
- 
+
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +32,7 @@ export class AgentDetailsComponent implements OnInit {
         this.agent = agent.data;
       });
   }
+  
   ngOnDestroy() {
     this.subs.unsubscribe();
   }

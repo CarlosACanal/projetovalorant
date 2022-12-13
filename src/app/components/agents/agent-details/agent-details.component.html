@@ -1,4 +1,11 @@
 <section class="agent-detail">
-    <p>oi</p>
-    <img [src]="agent.fullPortrait" alt="">
+    <h2>{{agent?.displayName}}</h2>
+    <img [src]="agent?.fullPortrait" alt="" width="500px">
+    <section class="abilities" style="display: flex;">
+        <div class="abilitie" *ngFor="let abilitie of agent?.abilities">
+            <h4>{{abilitie.displayName}}</h4>
+            <img [src]="abilitie.displayIcon" alt="" width="100px">
+            <!-- <p>{{abilitie.description}}</p> -->
+        </div>
+    </section>
 </section>
