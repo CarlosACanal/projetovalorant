@@ -1,28 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BASE_URL } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AgentsService {
-
-  readonly apiURL: string;
   agentList!: any[];
 
-
-
   constructor(private http: HttpClient) {
-    this.apiURL = "https://valorant-api.com/v1/";
   }
 
-
   getAgents(): Observable<any> {
-    return this.http.get<any>(`${this.apiURL}agents`)
+    return this.http.get<any>(`${BASE_URL}agents`, { params: { language: 'pt-BR' } })
   };
 
   getAgentById(agentId: String): Observable<any> {
-    return this.http.get<any>(`${this.apiURL}agents/${agentId}`, { params: { language: 'pt-BR' } })
+    return this.http.get<any>(`${BASE_URL}agents/${agentId}`, { params: { language: 'pt-BR' } })
   }
 
 }

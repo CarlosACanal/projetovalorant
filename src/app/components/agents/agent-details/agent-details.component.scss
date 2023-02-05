@@ -1,0 +1,87 @@
+.agent-container {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    // background-color: aqua;
+}
+
+.agent-abilities {
+    box-shadow: 4px 0px 4px rgb(0 0 0 / 25%);
+    min-height: 100%;
+    width: 40%;
+    display: flex;
+    color: var(--white);
+    justify-content: center;
+    align-items: center;
+
+    ul li {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+
+        .abilitie-img {
+            width: 90px;
+        }
+
+        .abilitie-description {
+            margin-left: 1.5rem;
+
+            .description-title {
+                font-family: var(--font-secondary);
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .description-description {
+                font-size: 0.9rem;
+                width: 450px;
+                line-height: 20px
+            }
+        }
+    }
+}
+
+.agent-image {
+    // width: 700px;
+    // max-height: 100%;
+    // background-position: top;
+    // background-size: 180%;
+    // background-repeat: no-repeat;
+    // overflow: hidden;
+    // display: block;
+    position: relative;
+    z-index: 1;
+    width: 750px;
+    height: calc(100vh - 70px);
+    max-height: calc(100vh - 70px);
+    overflow: hidden;
+    img { 
+        margin: -50px 0px 0px -350px;
+    }
+}
+
+.agent-infos {
+    padding: 3rem 9rem 3rem 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h2 {
+        font-size: 6rem;
+        font-weight: 800;
+        font-family: var(--font-secondary);
+    }
+
+    .agent-infos__role {
+        display: flex;
+        padding: 1rem 0;
+        align-items: center;
+
+        img {
+            width: 30px;
+            filter: brightness(0);
+            margin-right: 0.5rem;
+        }
+    }
+}

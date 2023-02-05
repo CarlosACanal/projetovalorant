@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500;700&family=Poppins:wght@100;400;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
 
 :root{
 	--pink: #ff4656ff;
 	--white: #ffffff;
 	--dark-blue: #0a141e;
 	--background: #ece8e1;
+	--font-default: 'Poppins', sans-serif;
+	--font-secondary: 'Oswald', sans-serif;
 
 }
 
@@ -68,7 +71,6 @@ table {
 }
 
 body{
-	overflow-x: hidden;
 	background-color: var(--background);
-	font-family: 'Poppins', sans-serif;
+	font-family: var(--font-default);
 }

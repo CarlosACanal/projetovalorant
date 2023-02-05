@@ -1,11 +1,36 @@
-<section class="agent-detail">
-    <h2>{{agent?.displayName}}</h2>
-    <img [src]="agent?.fullPortrait" alt="" width="500px">
-    <section class="abilities" style="display: flex;">
-        <div class="abilitie" *ngFor="let abilitie of agent?.abilities">
-            <h4>{{abilitie.displayName}}</h4>
-            <img [src]="abilitie.displayIcon" alt="" width="100px">
-            <!-- <p>{{abilitie.description}}</p> -->
+<section class="agent-container">
+    <div class="agent-abilities" [style.background]="'#' + agent?.backgroundGradientColors[1]">
+        <ul>
+            <li *ngFor="let abilitie of agent?.abilities; let i= index">
+                <img class="abilitie-img" [src]="abilitie.displayIcon" alt="Habilidade {{abilitie.displayName}}"
+                    *ngIf="i < 4">
+                <div class="abilitie-description" *ngIf="i < 4">
+                    <h4 class="description-title">{{abilitie.displayName}}</h4>
+                    <p class="description-description">{{abilitie.description}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="agent-image">
+        <img [src]="agent?.bustPortrait" alt="" style="width: 200%;">
+    </div>
+
+    <!-- <div class="agent-image" [ngStyle]=" {'background-image': 'url(' + agent?.bustPortrait + ')'}">
+        <img [src]="agent?.bustPortrait" alt="" style="width: 200%;">
+    </div> -->
+
+    <section class="agent-infos">
+        <div class="agent-primary-infos">
+            <h2>{{agent?.displayName}}</h2>
+            <div class="agent-infos__role">
+                <img [src]="agent?.role?.displayIcon" alt="">
+                <p>{{agent?.role?.displayName}}</p>
+            </div>
         </div>
+        <div style="width:300px">
+            <p>{{agent?.description}}</p>
+        </div>
+
     </section>
 </section>
