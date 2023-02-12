@@ -9,7 +9,7 @@ const routes: Routes = [
       .then(m => m.AgentsModule)
   },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'agents', pathMatch: 'full' },
 ];
 
 @NgModule({

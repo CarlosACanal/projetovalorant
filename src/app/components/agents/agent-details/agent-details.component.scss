@@ -1,87 +1,100 @@
-.agent-container {
+:host {
     width: 100%;
-    min-height: calc(100vh - 70px);
+    height: 100%;
     display: flex;
-    // background-color: aqua;
-}
-
-.agent-abilities {
-    box-shadow: 4px 0px 4px rgb(0 0 0 / 25%);
-    min-height: 100%;
-    width: 40%;
-    display: flex;
-    color: var(--white);
-    justify-content: center;
-    align-items: center;
-
-    ul li {
-        display: flex;
-        align-items: center;
-        padding: 1.5rem;
-
-        .abilitie-img {
-            width: 90px;
-        }
-
-        .abilitie-description {
-            margin-left: 1.5rem;
-
-            .description-title {
-                font-family: var(--font-secondary);
-                font-size: 1.8rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .description-description {
-                font-size: 0.9rem;
-                width: 450px;
-                line-height: 20px
-            }
-        }
-    }
 }
 
 .agent-image {
-    // width: 700px;
-    // max-height: 100%;
-    // background-position: top;
-    // background-size: 180%;
-    // background-repeat: no-repeat;
-    // overflow: hidden;
-    // display: block;
-    position: relative;
-    z-index: 1;
-    width: 750px;
-    height: calc(100vh - 70px);
-    max-height: calc(100vh - 70px);
-    overflow: hidden;
-    img { 
-        margin: -50px 0px 0px -350px;
+    height: 100%;
+    max-width: 40%;
+    min-width: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    img {
+        max-width: 100%;
+        height: calc(100vh - 75px);
+        object-fit: cover;
+
     }
 }
 
 .agent-infos {
-    padding: 3rem 9rem 3rem 0;
     flex-grow: 1;
     display: flex;
+    margin-bottom: 2rem;
     flex-direction: column;
-    justify-content: space-around;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 0 50%, 10% 10%, 10% 25%, 75% 0);
+    clip-path: polygon(0 0, 0 90%, 10% 100%, 100% 100%, 100% 0);
+    box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.587) !important;
 
     h2 {
-        font-size: 6rem;
+        font-size: 10rem;
         font-weight: 800;
         font-family: var(--font-secondary);
     }
 
+    .agent-primary-infos {
+        padding: 4rem 4rem 2rem 4rem;
+
+        p {
+            width: 600px;
+            line-height: 25px
+        }
+    }
+
     .agent-infos__role {
         display: flex;
-        padding: 1rem 0;
+        padding: 1rem 0 2rem 0;
         align-items: center;
+        font-size: 18px;
+        margin-left: 0.5rem;
 
         img {
-            width: 30px;
-            filter: brightness(0);
+            width: 40px;
             margin-right: 0.5rem;
         }
     }
+}
+
+.agent-abilities {
+    display: flex;
+    color: var(--white);
+    align-items: center;
+    padding: 0rem 4rem;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+            display: flex;
+            align-items: center;
+            width: 45%;
+            padding: 1rem;
+
+            .abilitie-img {
+                width: 90px;
+            }
+
+            .abilitie-description {
+                margin-left: 1.5rem;
+
+                .description-title {
+                    font-family: var(--font-secondary);
+                    font-size: 1.8rem;
+                }
+
+                .description-description {
+                    margin-top: 0.5rem;
+                    font-size: 0.9rem;
+                    line-height: 20px
+                }
+            }
+        }
+    }
+
 }
