@@ -7,7 +7,6 @@ import { BASE_URL } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AgentsService {
-  agentList!: any[];
 
   constructor(private http: HttpClient) {
   }

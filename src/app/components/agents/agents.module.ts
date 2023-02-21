@@ -1,3 +1,4 @@
+import { MapsService } from './../../services/maps.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from "@angular/core";
@@ -23,7 +24,7 @@ import { AgentListComponent } from './agent-list/agent-list.component';
     AgentsRoutingModule
 
   ],
-  providers: [AgentsService],
+  providers: [AgentsService, MapsService],
   bootstrap: []
 })
 export class AgentsModule { }

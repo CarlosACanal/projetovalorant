@@ -1,3 +1,4 @@
+import { MapsService } from './../../../services/maps.service';
 import { AgentsService } from 'src/app/services/agents.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,11 +15,13 @@ export class AgentDetailsComponent implements OnInit {
   subs!: Subscription;
   agent!: any;
   selectedAbilitie: number = 0;
+  initial: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private agentsService: AgentsService,
+    private mapsService: MapsService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +33,12 @@ export class AgentDetailsComponent implements OnInit {
       .subscribe((agent) => {
         console.log(agent.data);
         this.agent = agent.data;
+        this.initial = true;
       });
+
+    this.mapsService.getMaps().subscribe((maps) => {
+      console.log(maps)
+    })
   }
 
   showAbilitie(i: number) {

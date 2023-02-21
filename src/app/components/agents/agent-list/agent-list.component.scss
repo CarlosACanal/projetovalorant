@@ -4,15 +4,27 @@
     width: 100%;
     height: auto;
     margin: 2rem 0;
+    flex-wrap: wrap;
 
     .cards {
         width: 90%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-       .card{
-        width: 24%;
-        cursor: pointer;
-       }
+
+        .card {
+            width: 24%;
+            cursor: pointer;
+
+            @media screen and (max-width: 1000px) {
+                width: 40%;
+            }
+
+            @media screen and (max-width: 690px) {
+                width: 90%;
+            }
+        }
+        
     }
+
 }
