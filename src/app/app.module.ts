@@ -1,4 +1,3 @@
-import { LoaderModule } from './loader/loader.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
@@ -15,12 +14,12 @@ import { LoaderInterceptorInterceptor } from './loader-interceptor.interceptor';
     AppComponent,
     HomeComponent,
     NavBarComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LoaderModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorInterceptor, multi: true
