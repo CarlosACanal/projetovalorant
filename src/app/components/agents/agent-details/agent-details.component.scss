@@ -11,6 +11,7 @@
     grid-area: agent-image;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 
     img {
         max-width: 100%;
@@ -22,35 +23,53 @@
 .agent-infos {
     grid-area: agent-infos;
     display: flex;
-    margin-bottom: 2rem;
     flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+    padding: 2rem 4rem;
+    margin-bottom: 1rem;
     -webkit-clip-path: polygon(0 0, 0 50%, 10% 10%, 10% 25%, 75% 0);
     clip-path: polygon(0 0, 0 90%, 10% 100%, 100% 100%, 100% 0);
 
     h2 {
-        font-size: 10rem;
+        font-size: 4rem;
         font-weight: 800;
         font-family: var(--font-secondary);
     }
 
     .agent-primary-infos {
-        padding-right: 4rem;
+        display: flex;
+        padding-bottom: 2rem;
+        align-items: center;
+        justify-content: space-between;
+
+        hr {
+            flex-grow: 1;
+            margin: 0 10px;
+            border: 1px solid var(--pink);
+        }
+    }
+
+    .agent-description{
+        h3 {
+            font-weight: 800;
+        }
         p {
             width: 600px;
-            line-height: 25px
+            line-height: 25px;
+            font-size: 14px;
         }
     }
 
     .agent-infos__role {
         display: flex;
-        padding: 1rem 0 2rem 0;
         align-items: center;
-        font-size: 18px;
         margin-left: 0.5rem;
 
         img {
-            width: 40px;
+            width: 35px;
             margin-right: 0.5rem;
+            filter: brightness(0.1);
         }
     }
 }
@@ -58,11 +77,11 @@
 .agent-abilities {
     display: flex;
     color: var(--white);
-    padding: 0rem 4rem;
     flex-direction: column;
+    margin-top: 1rem;
 
     .abilities-title {
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 800;
         font-family: var(--font-secondary);
     }
@@ -83,11 +102,14 @@
                 width: 90px;
                 padding: 1rem;
                 border-radius: 5px;
+                filter: brightness(0);
                 transition: .2s;
 
                 &:hover {
                     transform: scale(1.05);
                     box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.44);
+                    background-color: var(--pink);
+                    filter: brightness(1);
                 }
             }
         }
@@ -97,11 +119,11 @@
 }
 
 span {
-    width: 80%;
+    width: 90%;
     align-self: center;
 
     .abilitie-description {
-        margin-top: 1rem;
+        margin-top: 2rem;
 
         .description-title {
             font-family: var(--font-secondary);
@@ -113,6 +135,7 @@ span {
             margin-top: 0.5rem;
             line-height: 20px;
             text-align: center;
+            font-size: 14px;
         }
     }
 }
@@ -120,4 +143,6 @@ span {
 .selected-abilitie {
     transform: scale(1.05);
     box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.44);
+    background-color: var(--pink);
+    filter: brightness(1) !important;
 }

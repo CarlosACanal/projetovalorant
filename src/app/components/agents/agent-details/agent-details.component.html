@@ -1,20 +1,20 @@
     <div class="agent-image" [ngStyle]=" {'background-image': 'url(' + agent?.background + ')'}">
         <img [src]="agent?.bustPortrait" [alt]="'Agente ' + agent?.displayName">
     </div>
-    <section class="agent-infos" [style.background]="'#'+agent?.backgroundGradientColors[1]">
-        <div style="display: flex; align-items: center; padding: 3rem 4rem;">
+    <section class="agent-infos" [style.background]="'#ece8e1'">
             <div class="agent-primary-infos">
                 <h2>{{agent?.displayName}}</h2>
+                <hr>
                 <div class="agent-infos__role">
                     <img [src]="agent?.role?.displayIcon" alt="'Icone da classe do agente'">
                     <span>{{agent?.role?.displayName}}</span>
                 </div>
             </div>
             <div class="agent-description">
+                <h3>// BIOGRAFIA</h3>
                 <p>{{agent?.description}}</p>
             </div>
-        </div>
-        <div class="agent-abilities" [style.background]="'#' + agent?.backgroundGradientColors[1]">
+        <div class="agent-abilities">
             <h3 class="abilities-title">Habilidades:</h3> <br>
             <ul>
                 <li *ngFor="let abilitie of agent?.abilities; let i= index" (click)="showAbilitie(i)">
