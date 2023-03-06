@@ -22,6 +22,7 @@
 }
 
 .agent-infos {
+    background-color: var(--background-secondary);
     grid-area: agent-infos;
     display: flex;
     flex-direction: column;
