@@ -1,11 +1,9 @@
 # ProjetoValorant (in development)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
-
 ## How to run the project:
 
 Install Node.js (https://nodejs.org/en/download/)
 
 Create a new terminal in the folder with this project and run 'npm install'.
 
-Run `npm start` and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run 'npm start' and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
