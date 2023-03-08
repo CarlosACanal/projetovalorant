@@ -1,0 +1,11 @@
+<div class="maps">
+    <div class="map" *ngFor="let map of maps">
+        <div class="textDiv">
+            <h3>// {{map.displayName}}</h3>
+        </div>
+        <div class="map-image">
+            <img [src]="map.splash" [alt]="map.displayName">
+        </div>
+
+    </div>
+</div>
