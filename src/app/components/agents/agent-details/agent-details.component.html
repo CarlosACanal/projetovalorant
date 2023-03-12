@@ -19,8 +19,9 @@
         <ul>
             <li *ngFor="let abilitie of agent?.abilities; let i= index" (click)="showAbilitie(i)">
                 <div class="abilitie-icons">
-                    <img class="abilitie-icon" loading="lazy" [src]="abilitie.displayIcon" alt="Habilidade {{abilitie.displayName}}"
-                        *ngIf="i < 4" [ngClass]="{'selected-abilitie' : selectedAbilitie === i}">
+                    <img class="abilitie-icon" loading="lazy" [src]="abilitie.displayIcon"
+                        alt="Habilidade {{abilitie.displayName}}" *ngIf="i < 4"
+                        [ngClass]="{'selected-abilitie' : selectedAbilitie === i}">
                 </div>
             </li>
         </ul>

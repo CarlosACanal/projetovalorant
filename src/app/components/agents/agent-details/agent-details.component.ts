@@ -1,8 +1,8 @@
-import { MapsService } from './../../../services/maps.service';
-import { AgentsService } from 'src/app/services/agents.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { AgentsService } from 'src/app/services/agents.service';
 
 @Component({
   selector: 'app-agent-details',
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class AgentDetailsComponent implements OnInit {
 
-  id?: any;
+  id: any;
   subs!: Subscription;
   agent!: any;
   selectedAbilitie: number = 0;
@@ -19,13 +19,11 @@ export class AgentDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private agentsService: AgentsService,
-    private mapsService: MapsService
   ) { }
 
   ngOnInit(): void {
-    this.subs = this.route.params.subscribe((params: any) => {
+    this.subs = this.route?.params?.subscribe((params): void => {
       this.id = params['id'];
     });
 
@@ -35,10 +33,6 @@ export class AgentDetailsComponent implements OnInit {
         this.agent = agent.data;
         this.initial = true;
       });
-
-    this.mapsService.getMaps().subscribe((maps) => {
-      console.log(maps)
-    })
   }
 
   showAbilitie(i: number) {

@@ -24,7 +24,7 @@ import { AgentListComponent } from './agent-list/agent-list.component';
     AgentsRoutingModule
 
   ],
-  providers: [AgentsService, MapsService],
+  providers: [AgentsService],
   bootstrap: []
 })
 export class AgentsModule { }

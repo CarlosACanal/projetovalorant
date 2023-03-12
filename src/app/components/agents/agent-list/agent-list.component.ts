@@ -9,10 +9,6 @@ import { AgentsService } from 'src/app/services/agents.service';
 export class AgentListComponent implements OnInit {
 
   agents: any[] = [];
-  duelist: any[] = [];
-  controller: any[] = [];
-  initiatior: any[] = [];
-  sentinel: any[] = [];
   selectedAgent: any;
   agentStatus: boolean = false;
 
@@ -24,21 +20,7 @@ export class AgentListComponent implements OnInit {
         agents.data.forEach((agent: any) => {
           if (agent.isPlayableCharacter != false) {
             this.agents.push(agent);
-            switch (agent.role.displayName) {
-              case ("Duelista"):
-                this.duelist.push(agent);
-                break;
-              case ("Controlador"):
-                this.controller.push(agent);
-                break;
-              case ("Iniciador"):
-                this.initiatior.push(agent);
-                break;
-              case ("Sentinela"):
-                this.sentinel.push(agent);
-                break;
-            }
-          }   
+          }
         });
       });
   }
