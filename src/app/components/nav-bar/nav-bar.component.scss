@@ -19,8 +19,21 @@
             width: 120px;
             cursor: pointer;
         }
+        
+        .menu-toggle {
+            border: none;
+            background: none;
+        }
 
-        ul {
+        .menu-toggle::before {
+            content: "≡";
+            font-size: 40px;
+            color: var(--pink);
+            float: right;
+            margin-left: 5px;
+        }
+
+        .opt-list {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -36,7 +49,7 @@
                     padding: 0.5rem 0.7rem;
 
                     &:after {
-                        content: '';
+                        content: "";
                         position: absolute;
                         width: 100%;
                         transform: scaleX(0);
@@ -61,4 +74,23 @@
         border-bottom: 2px solid var(--pink);
     }
 
+    @media screen and (max-width: 600px) {
+        .opt-list {
+            flex-direction: column;
+            display: none !important;
+        }
+
+        .responsive-menu {
+            display: block !important;
+            position: absolute;
+            top: 65px;
+            right: 0;
+            background-color: var(--white);
+            border-radius: 5px;
+            padding: 10px;
+            a {
+                color: var(--dark-blue) !important;
+            }
+        }
+    }
 }

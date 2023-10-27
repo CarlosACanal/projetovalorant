@@ -1,7 +1,7 @@
-<div class="agent-image" [ngStyle]=" {'background-image': 'url(' + agent?.background + ')'}">
+<div *ngIf="initial" class="agent-image" [ngStyle]=" {'background-image': 'url(' + agent?.background + ')'}">
     <img [src]="agent?.bustPortrait" [alt]="'Agente ' + agent?.displayName">
 </div>
-<section class="agent-infos">
+<section *ngIf="initial" class="agent-infos">
     <div class="agent-primary-infos">
         <h2>{{agent?.displayName}}</h2>
         <hr>
@@ -26,7 +26,7 @@
             </li>
         </ul>
         <span *ngFor="let abilitie of agent?.abilities; let i= index">
-            <div class="abilitie-description" *ngIf="selectedAbilitie === i">
+            <div class="abilitie-description" *ngIf="selectedAbilitie == i">
                 <h4 class="description-title">{{abilitie.displayName}}</h4>
                 <p class="description-description">{{abilitie.description}}</p>
             </div>

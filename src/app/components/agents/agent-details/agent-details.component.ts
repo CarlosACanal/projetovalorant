@@ -40,6 +40,5 @@ export class AgentDetailsComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.subs.unsubscribe();
   }
 }

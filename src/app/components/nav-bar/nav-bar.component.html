@@ -1,10 +1,11 @@
 <section class="nav-bar">
     <nav>
         <img routerLink="/" class="logo" src="..\assets\valorant-logo.png" alt="valorant logo">
-        <ul class="opt-list">
-            <li><a routerLinkActive="active-route-detail" routerLink="/agents">AGENTES</a></li>
-            <li><a routerLinkActive="active-route-detail" routerLink="/maps">MAPAS</a></li>
-            <li><a routerLinkActive="active-route-detail" routerLink="/about">SOBRE</a></li>
+        <button *ngIf="isMobile" class="menu-toggle" (click)="menuToggle()"></button>
+        <ul class="opt-list" [ngClass]="{'responsive-menu': menuIsOpen}">
+            <li (click)="menuToggle()"><a routerLinkActive="active-route-detail" routerLink="/agents">AGENTES</a></li>
+            <li (click)="menuToggle()"><a routerLinkActive="active-route-detail" routerLink="/maps">MAPAS</a></li>
+            <li (click)="menuToggle()"><a routerLinkActive="active-route-detail" routerLink="/about">SOBRE</a></li>
         </ul>
     </nav>
 </section>  

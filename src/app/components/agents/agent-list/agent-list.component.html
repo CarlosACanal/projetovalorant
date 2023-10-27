@@ -1,10 +1,6 @@
-<section class="agents" >
-    <div class="cards" *ngIf="!agentStatus">
-        <app-card class="card" *ngFor="let agent of agents; let i = index"
-        [cardImage]="agent.fullPortraitV2"
-        [name]="agent.displayName"
-        [backgroundColorCard]="'#'+agent.backgroundGradientColors[1]"
-        [backgroundImageCard]="agent.background"
-        [routerLink]="['/agents',agent.uuid]"></app-card>
-    </div>
-</section>
+<div class="cards" *ngIf="!agentStatus">
+    <app-card class="card" *ngFor="let agent of agents; let i = index" [cardImage]="agent.fullPortraitV2"
+        [name]="agent.displayName" [backgroundColorCard]="'#'+agent.backgroundGradientColors[1]"
+        [backgroundImageCard]="agent.background" [routerLink]="['/agents',agent.uuid]">
+    </app-card>
+</div>

@@ -1,27 +1,11 @@
-.agents {
-    display: flex;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    grid-gap: 20px;
     justify-content: center;
-    width: 100%;
-    height: auto;
-    flex-wrap: wrap;
+    padding: 30px;
 
-    .cards {
-        width: 90%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-
-        .card {
-            width: 24%;
-            cursor: pointer;
-
-            @media screen and (max-width: 1000px) {
-                width: 40%;
-            }
-
-            @media screen and (max-width: 690px) {
-                width: 90%;
-            }
-        }
+    .card {
+        cursor: pointer;
     }
 }

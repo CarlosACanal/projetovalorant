@@ -15,7 +15,6 @@ export class MapsComponent implements OnInit {
   ngOnInit(): void {
     this.mapsService.getMaps().subscribe(maps => {
       this.maps = maps.data;
-      console.log(this.maps)
     })
   }
 

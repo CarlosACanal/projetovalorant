@@ -1,16 +1,11 @@
 .maps {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 1.5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 700px));
+    grid-gap: 20px;
+    justify-content: center;
+    padding: 30px;
 
     .map {
-        width: 48%;
-        height: 49%;
-        margin-bottom: 1%;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -27,9 +22,6 @@
                 transform: scale(1.1);
                 filter: grayscale(70%);
                 transition: 0.8s ease;
-                
-               
-
 
                 &:hover {
                     transform: scale(1);
