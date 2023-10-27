@@ -6,15 +6,15 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  innerWidth!:number;
+  innerWidth!: number;
   isMobile: boolean = false;
   menuIsOpen: boolean = false;
 
   constructor() { }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event:any) {
-    window.innerWidth < 600 ? this.isMobile = true : this.isMobile = false;
+  onResize(event: any) {
+    this.isMobile = window.innerWidth <= 600 ? true : false;
   }
 
   menuToggle() {
@@ -22,7 +22,7 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.innerWidth < 600 ? this.isMobile = true : null;
+    this.isMobile = window.innerWidth <= 600 ? true : false;
   }
 
 }
