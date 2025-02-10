@@ -35,10 +35,6 @@ export class AgentDetailsComponent implements OnInit {
       });
   }
 
-  showAbilitie(i: number) {
-    this.selectedAbilitie = i;
-  }
-
   ngOnDestroy() {
   }
 }

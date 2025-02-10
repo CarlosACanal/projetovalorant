@@ -6,7 +6,7 @@
         <h2>{{agent?.displayName}}</h2>
         <hr>
         <div class="agent-infos__role">
-            <img [src]="agent?.role?.displayIcon" alt="'Icone da classe do agente'">
+            <img [src]="agent?.role?.displayIcon" alt="Icone da classe do agente">
             <span>{{agent?.role?.displayName}}</span>
         </div>
     </div>
@@ -17,7 +17,7 @@
     <div class="agent-abilities">
         <h3 class="abilities-title">Habilidades:</h3> <br>
         <ul>
-            <li *ngFor="let abilitie of agent?.abilities; let i= index" (click)="showAbilitie(i)">
+            <li *ngFor="let abilitie of agent?.abilities; let i= index" (click)="selectedAbilitie = i">
                 <div class="abilitie-icons">
                     <img class="abilitie-icon" loading="lazy" [src]="abilitie.displayIcon"
                         alt="Habilidade {{abilitie.displayName}}" *ngIf="i < 4"
