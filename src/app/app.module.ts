@@ -10,6 +10,10 @@ import { LoaderInterceptorInterceptor } from './loader-interceptor.interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AboutComponent } from './components/about/about.component';
 import { MapsComponent } from './maps/maps.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,9 @@ import { MapsComponent } from './maps/maps.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [
     {
