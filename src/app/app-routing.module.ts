@@ -17,6 +17,7 @@ const routes: Routes = [
       .then(m => m.MapsModule)
   },
   { path: '', redirectTo: 'agents', pathMatch: 'full' },
+    { path: '**', redirectTo: 'agents' }
 ];
 
 @NgModule({

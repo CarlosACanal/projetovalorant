@@ -1,5 +1,5 @@
-import { Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { map, Observable, switchMap } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { AgentsService } from 'src/app/services/agents.service';
@@ -9,32 +9,13 @@ import { AgentsService } from 'src/app/services/agents.service';
   templateUrl: './agent-details.component.html',
   styleUrls: ['./agent-details.component.scss']
 })
-export class AgentDetailsComponent implements OnInit {
+export class AgentDetailsComponent {
+  protected selectedAbilitie: number = 0;
 
-  id: any;
-  subs!: Subscription;
-  agent!: any;
-  selectedAbilitie: number = 0;
-  initial: boolean = false;
-
-  constructor(
-    private route: ActivatedRoute,
-    private agentsService: AgentsService,
-  ) { }
-
-  ngOnInit(): void {
-    this.subs = this.route?.params?.subscribe((params): void => {
-      this.id = params['id'];
-    });
-
-    this.agentsService.getAgentById(this.id)
-      .subscribe((agent) => {
-        console.log(agent.data);
-        this.agent = agent.data;
-        this.initial = true;
-      });
-  }
-
-  ngOnDestroy() {
-  }
+  protected readonly route = inject(ActivatedRoute);
+  protected readonly agentsService = inject(AgentsService);
+  protected readonly agent$ = this.route.params.pipe(
+    map(params => params['id']),
+    switchMap(id => this.agentsService.getAgentById(id)),
+  );
 }

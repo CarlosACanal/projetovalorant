@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, take } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { BASE_URL } from 'src/environments/environment';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class AgentsService {
   };
 
   getAgentById(agentId: String): Observable<any> {
-    return this.http.get<any>(`${BASE_URL}agents/${agentId}`, { params: { language: 'pt-BR' } }).pipe(take(1));
+    return this.http.get<any>(`${BASE_URL}agents/${agentId}`, { params: { language: 'pt-BR' } }).pipe(take(1), map(res => res.data));
   }
 
 }
