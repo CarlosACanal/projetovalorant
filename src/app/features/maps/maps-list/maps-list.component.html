@@ -1,5 +1,5 @@
 <div class="maps" *ngIf="maps">
-    <div class="map" *ngFor="let map of maps">
+    <div class="map" *ngFor="let map of maps" [routerLink]="['/maps',map.uuid]">
         <div class="textDiv">
             <h3>// {{map.displayName}}</h3>
         </div>

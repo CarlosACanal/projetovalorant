@@ -1,21 +1,26 @@
-import { MapsComponent } from './maps/maps.component';
-import { AboutComponent } from './components/about/about.component';
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './features/about/about.component';
+import { MapsComponent } from './features/maps/maps.component';
 
 const routes: Routes = [
   {
     path: 'agents',
-    loadChildren: () => import('../app/components/agents/agents.module')
+    loadChildren: () => import('../app/features/agents/agents.module')
       .then(m => m.AgentsModule)
   },
   { path: 'about', component: AboutComponent },
-  {path: 'maps', component: MapsComponent},
+  {
+    path: 'maps',
+    loadChildren: () => import('../app/features/maps/maps.module')
+      .then(m => m.MapsModule)
+  },
   { path: '', redirectTo: 'agents', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

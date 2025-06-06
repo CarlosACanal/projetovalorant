@@ -7,24 +7,26 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderInterceptorInterceptor } from './loader-interceptor.interceptor';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { AboutComponent } from './components/about/about.component';
-import { MapsComponent } from './maps/maps.component';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { MapsComponent } from './features/maps/maps.component';
+import { AboutComponent } from './features/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     LoaderComponent,
-    AboutComponent,
     MapsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    NavBarComponent,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({}, {}),
@@ -36,10 +38,6 @@ import { environment } from '../environments/environment';
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptorInterceptor,
       multi: true
-    },
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy
     }
   ],
   bootstrap: [AppComponent]

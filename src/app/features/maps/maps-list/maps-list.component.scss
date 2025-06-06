@@ -9,7 +9,7 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        
+        cursor: pointer;
 
         .map-image {
             width: 100%;
@@ -26,7 +26,6 @@
                 &:hover {
                     transform: scale(1);
                     filter: grayscale(0);
-                
                 }
             }
         }
@@ -37,6 +36,5 @@
             width: fit-content;
             font-size: 1.1rem;
         }
-
     }
 }

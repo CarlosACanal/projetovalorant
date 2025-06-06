@@ -1,13 +1,12 @@
-import { MapsService } from './../services/maps.service';
 import { Component, OnInit } from '@angular/core';
-
+import { MapsService } from 'src/app/services/maps.service';
 
 @Component({
-  selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.scss']
+  selector: 'app-maps-list',
+  templateUrl: './maps-list.component.html',
+  styleUrls: ['./maps-list.component.scss']
 })
-export class MapsComponent implements OnInit {
+export class MapsListComponent implements OnInit {
   maps!: any;
 
   constructor(private mapsService: MapsService) { }
