@@ -1,24 +1,24 @@
-<ng-container *ngIf="agent$ | async as agent">
-    <div class="agent-image" [ngStyle]=" {'background-image': 'url(' + agent?.background + ')'}">
-        <img [src]="agent?.bustPortrait" [alt]="'agente ' + agent?.displayName">
+<ng-container *ngIf="agent$ | async as agent; else loading">
+    <div class="agent-image" [ngStyle]=" {'background-image': 'url(' + agent.background + ')'}">
+        <img [src]="agent.bustPortrait" [alt]="'agente ' + agent.displayName">
     </div>
     <section class="agent-infos">
         <div class="agent-primary-infos">
-            <h2>{{agent?.displayName}}</h2>
+            <h2>{{agent.displayName}}</h2>
             <hr>
             <div class="agent-infos__role">
-                <img [src]="agent?.role?.displayIcon" alt="Icone da classe do agente">
-                <span>{{agent?.role?.displayName}}</span>
+                <img [src]="agent.role.displayIcon" alt="Icone da classe do agente">
+                <span>{{agent.role.displayName}}</span>
             </div>
         </div>
         <div class="agent-description">
             <h3>// BIOGRAFIA</h3>
-            <p>{{agent?.description}}</p>
-        </div>  
+            <p>{{agent.description}}</p>
+        </div>
         <div class="agent-abilities">
             <h3 class="abilities-title">Habilidades:</h3> <br>
             <ul>
-                <li *ngFor="let abilitie of agent?.abilities; let i= index" (click)="selectedAbilitie = i">
+                <li *ngFor="let abilitie of agent.abilities; let i= index" (click)="selectedAbilitie = i">
                     <div class="abilitie-icons">
                         <img class="abilitie-icon" loading="lazy" [src]="abilitie.displayIcon"
                             alt="Habilidade {{abilitie.displayName}}" *ngIf="i < 4"
@@ -26,12 +26,16 @@
                     </div>
                 </li>
             </ul>
-            <span *ngFor="let abilitie of agent?.abilities; let i= index">
+            <ng-container *ngFor="let abilitie of agent.abilities; let i= index">
                 <div class="abilitie-description" *ngIf="selectedAbilitie == i">
                     <h4 class="description-title">{{abilitie.displayName}}</h4>
                     <p class="description-description">{{abilitie.description}}</p>
                 </div>
-            </span>
+            </ng-container>
         </div>
     </section>
 </ng-container>
+
+<ng-template #loading>
+    <app-loader></app-loader>
+</ng-template>

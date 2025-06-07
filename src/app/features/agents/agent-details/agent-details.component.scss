@@ -5,7 +5,6 @@
     grid-template-columns: 2fr 3fr;
     grid-template-rows: calc(100vh - 70px);
     grid-template-areas: "agent-image agent-infos";
-
 }
 
 .agent-image {
@@ -105,7 +104,7 @@
                 padding: 1rem;
                 border-radius: 5px;
                 filter: brightness(0);
-                transition: .2s;
+                transition: 0.2s;
 
                 &:hover {
                     transform: scale(1.05);
@@ -115,30 +114,25 @@
                 }
             }
         }
-
     }
-
 }
 
-span {
+.abilitie-description {
     width: 90%;
     align-self: center;
+    margin-top: 2rem;
 
-    .abilitie-description {
-        margin-top: 2rem;
+    .description-title {
+        font-family: var(--font-secondary);
+        font-size: 1.8rem;
+        text-align: center;
+    }
 
-        .description-title {
-            font-family: var(--font-secondary);
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .description-description {
-            margin-top: 0.5rem;
-            line-height: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
+    .description-description {
+        margin-top: 0.5rem;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
     }
 }
 
@@ -161,8 +155,6 @@ span {
     .agent-infos {
         clip-path: none;
     }
-
-
 }
 
 @media screen and (max-width: 700px) {

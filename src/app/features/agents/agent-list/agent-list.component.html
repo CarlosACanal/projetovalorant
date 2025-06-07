@@ -1,6 +1,18 @@
-<div class="cards" *ngIf="!agentStatus">
-    <app-card class="card" *ngFor="let agent of agents; let i = index" [cardImage]="agent.fullPortraitV2"
-        [name]="agent.displayName" [backgroundColorCard]="'#'+agent.backgroundGradientColors[1]"
-        [backgroundImageCard]="agent.background" [routerLink]="['/agents',agent.uuid]">
+<ng-container *ngIf="agentsLoading$ | async; else agentsDisplay">
+  <app-loader></app-loader>
+</ng-container>
+
+<ng-template #agentsDisplay>
+  <div class="cards">
+    <app-card
+      class="card"
+      *ngFor="let agent of agents$ | async; let i = index"
+      [cardImage]="agent.fullPortraitV2"
+      [name]="agent.displayName"
+      [backgroundColorCard]="'#' + agent.backgroundGradientColors[1]"
+      [backgroundImageCard]="agent.background"
+      [routerLink]="['/agents', agent.uuid]"
+    >
     </app-card>
-</div>
+  </div>
+</ng-template>
