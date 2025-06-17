@@ -3,6 +3,7 @@
 </ng-container>
 
 <ng-template #agentsDisplay>
+  <app-agents-list-filters-header></app-agents-list-filters-header>
   <div class="cards">
     <app-card
       class="card"
@@ -15,4 +16,6 @@
     >
     </app-card>
   </div>
+
+  <h2 *ngIf="(agents$ | async)?.length === 0">Sem resultados encontrados!</h2>
 </ng-template>

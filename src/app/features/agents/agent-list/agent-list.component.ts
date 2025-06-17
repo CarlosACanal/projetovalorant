@@ -14,7 +14,7 @@ export class AgentListComponent implements OnInit {
   private readonly store = inject(Store);
 
   protected readonly agents$: Observable<Agent[]> = this.store
-    .select(agentSelectors.selectAllAgents)
+    .select(agentSelectors.selectFilteredAgents)
     .pipe(map((agents) => agents.filter((agent) => agent.isPlayableCharacter)));
   protected readonly agentsLoading$: Observable<boolean> = this.store.select(
     agentSelectors.selectAgentsIsLoading

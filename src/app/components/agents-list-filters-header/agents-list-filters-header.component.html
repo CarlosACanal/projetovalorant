@@ -1,0 +1,44 @@
+<ng-container *ngrxLet="role$ as previousRoly">
+  <div class="container">
+    <div class="section">
+      <h3 class="title">Filtros</h3>
+      <h3 class="section-title">Pesquisa por nome:</h3>
+      <input
+        #searchInput
+        type="text"
+        (input)="filterByTerm(searchInput.value || '')"
+        placeholder="Digite o nome do agente"
+      />
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Funções:</h3>
+      <div class="role-buttons">
+        <button
+          [class.selected]="previousRoly === RoleEnum.Initiator"
+          (click)="selectRole(RoleEnum.Initiator, previousRoly)"
+        >
+          Iniciador
+        </button>
+        <button
+          [class.selected]="previousRoly === RoleEnum.Controller"
+          (click)="selectRole(RoleEnum.Controller, previousRoly)"
+        >
+          Controlador
+        </button>
+        <button
+          [class.selected]="previousRoly === RoleEnum.Duelist"
+          (click)="selectRole(RoleEnum.Duelist, previousRoly)"
+        >
+          Duelista
+        </button>
+        <button
+          [class.selected]="previousRoly === RoleEnum.Sentinel"
+          (click)="selectRole(RoleEnum.Sentinel, previousRoly)"
+        >
+          Sentinela
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>
